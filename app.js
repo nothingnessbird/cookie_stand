@@ -8,6 +8,7 @@ var stores = {
     maxCustHour: 65,
     avgSale: 6.3,
     cookieHour: [],
+    hourArray: [],
   },
   store2: {
     location: 'SeaTac Airport',
@@ -16,6 +17,7 @@ var stores = {
     maxCustHour: 24,
     avgSale: 1.2,
     cookieHour: [],
+    hourArray: [],
   },
   store3: {
     location: 'Seattle Center',
@@ -24,6 +26,7 @@ var stores = {
     maxCustHour: 38,
     avgSale: 3.7,
     cookieHour: [],
+    hourArray: [],
   },
   store4: {
     location: 'Capitol Hill',
@@ -32,6 +35,7 @@ var stores = {
     maxCustHour: 38,
     avgSale: 2.3,
     cookieHour: [],
+    hourArray: [],
   },
   store5: {
     location: 'Alki',
@@ -40,19 +44,35 @@ var stores = {
     maxCustHour: 16,
     avgSale: 4.6,
     cookieHour: [],
+    hourArray: [],
   },
   perHourCalc: function (store) {
     var perHourRand = Math.floor((Math.random() * (store.maxCustHour - store.minCustHour) + store.minCustHour) * store.avgSale);
     return perHourRand;
   },
-  dayTotalCalc: function(store){
+  dayTotalCalc: function(store) {
     var dayTotal = 0;
+    this.hourMaker(store);
     for (var i = 0; i < (store.hours[1] - store.hours[0]); i++) {
       var cookies = this.perHourCalc(store);
       store.cookieHour.push(cookies);
       dayTotal += cookies;
     }
     return dayTotal;
+  },
+  hourMaker: function(store) {
+    var time = 0;
+    for (var i = 0; i < (store.hours[1] - store.hours[0]); i++) {
+      time = [i + store.hours[0]];
+      if (time < 12) {
+        time.push('am');
+      } else {
+        time.push('pm');
+      }
+      time[0] = ((time[0] + 11) % 12 + 1);
+      time = time[0] + time[1] + ': ';
+      store.hourArray.push(time);
+    }
   },
 };
 var storeInfo = document.getElementById('storeInfo');
