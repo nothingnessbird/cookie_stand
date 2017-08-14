@@ -55,3 +55,4 @@ var stores = {
     return dayTotal;
   },
 };
+var storeInfo = document.getElementById('storeInfo');
