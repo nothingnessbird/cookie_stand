@@ -77,9 +77,23 @@ var stores = {
     }
   },
 };
-stores.dayTotalCalc(stores.store1);
-stores.dayTotalCalc(stores.store2);
-stores.dayTotalCalc(stores.store3);
-stores.dayTotalCalc(stores.store4);
-stores.dayTotalCalc(stores.store5);
-var storeInfo = document.getElementById('storeInfo');
+var keyArray = [stores.store1, stores.store2, stores.store3, stores.store4, stores.store5];
+
+for (var i = 0; i < keyArray.length; i++) {
+  stores.dayTotalCalc(keyArray[i]);
+}
+
+for (var n = 0; n < keyArray.length; n++) {
+  var storeInfo = document.getElementById('storeDiv');
+  var storeName = document.createElement('h2');
+  storeName.innerHTML = keyArray[n].location;
+  storeName.id = 'location';
+  storeInfo.appendChild(storeName);
+  var cookieSales = document.createElement('ul');
+  storeInfo.appendChild(cookieSales);
+  for (var i = 0; i < keyArray[n].hourArray.length; i++) {
+    var hourInfo = document.createElement('li');
+    hourInfo.innerHTML = keyArray[n].hourArray[i] + keyArray[n].cookieHour[i];
+    cookieSales.appendChild(hourInfo);
+  }
+}
