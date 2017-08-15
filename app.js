@@ -53,6 +53,7 @@ var stores = {
   dayTotalCalc: function(store) {
     var dayTotal = 0;
     this.hourMaker(store);
+    store.cookieHour = [];
     for (var i = 0; i < (store.hours[1] - store.hours[0]); i++) {
       var cookies = this.perHourCalc(store);
       store.cookieHour.push(cookies);
