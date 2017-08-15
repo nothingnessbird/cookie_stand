@@ -54,6 +54,7 @@ var stores = {
     var dayTotal = 0;
     this.hourMaker(store);
     store.cookieHour = [];
+    store.dayTotal = 0;
     for (var i = 0; i < (store.hours[1] - store.hours[0]); i++) {
       var cookies = this.perHourCalc(store);
       store.cookieHour.push(cookies);
@@ -88,7 +89,6 @@ for (var n = 0; n < keyArray.length; n++) {
   var storeInfo = document.getElementById('storeDiv');
   var storeName = document.createElement('h2');
   storeName.innerHTML = keyArray[n].location;
-  storeName.id = 'location';
   storeInfo.appendChild(storeName);
   var cookieSales = document.createElement('ul');
   storeInfo.appendChild(cookieSales);
