@@ -93,6 +93,7 @@ for (var n = 0; n < keyArray.length; n++) {
   storeInfo.appendChild(cookieSales);
   for (var i = 0; i < keyArray[n].hourArray.length; i++) {
     var hourInfo = document.createElement('li');
+    hourInfo.id = 'hourInfo';
     hourInfo.innerHTML = keyArray[n].hourArray[i] + keyArray[n].cookieHour[i];
     cookieSales.appendChild(hourInfo);
   }
