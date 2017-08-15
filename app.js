@@ -2,7 +2,7 @@
 
 var stores = {
   store1: {
-    location: '1st and Pike',
+    address: '1st and Pike',
     hours: [6,20],
     minCustHour: 23,
     maxCustHour: 65,
@@ -11,7 +11,7 @@ var stores = {
     hourArray: [],
   },
   store2: {
-    location: 'SeaTac Airport',
+    address: 'SeaTac Airport',
     hours: [6,20],
     minCustHour: 3,
     maxCustHour: 24,
@@ -20,7 +20,7 @@ var stores = {
     hourArray: [],
   },
   store3: {
-    location: 'Seattle Center',
+    address: 'Seattle Center',
     hours: [6,20],
     minCustHour: 11,
     maxCustHour: 38,
@@ -29,7 +29,7 @@ var stores = {
     hourArray: [],
   },
   store4: {
-    location: 'Capitol Hill',
+    address: 'Capitol Hill',
     hours: [6,20],
     minCustHour: 20,
     maxCustHour: 38,
@@ -38,7 +38,7 @@ var stores = {
     hourArray: [],
   },
   store5: {
-    location: 'Alki',
+    address: 'Alki',
     hours: [6,20],
     minCustHour: 2,
     maxCustHour: 16,
@@ -88,7 +88,7 @@ for (var i = 0; i < keyArray.length; i++) {
 for (var n = 0; n < keyArray.length; n++) {
   var storeInfo = document.getElementById('storeDiv');
   var storeName = document.createElement('h2');
-  storeName.innerHTML = keyArray[n].location;
+  storeName.innerHTML = keyArray[n].address;
   storeInfo.appendChild(storeName);
   var cookieSales = document.createElement('ul');
   storeInfo.appendChild(cookieSales);
