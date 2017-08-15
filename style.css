@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+.topBar {
+  border: 5px solid black;
+  text-align: center;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c4c4c4+0,848484+50,848484+51,cecece+100 */
+  background: #c4c4c4; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #c4c4c4 0%, #848484 50%, #848484 51%, #cecece 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #c4c4c4 0%,#848484 50%,#848484 51%,#cecece 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #c4c4c4 0%,#848484 50%,#848484 51%,#cecece 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4c4c4', endColorstr='#cecece',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+body {
+  background-color: #F0EBC2;
+}
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  position: absolute;
+  font-size: 3em;
+  top: 115px;
+  right: 40%;
+}
+header h2 {
+  font-family: 'Cantarell', sans-serif;
+  font-style: italic;
+  color: #F0DC92;
+}
+#storeDiv {
+  margin: auto;
+  width: 80%;
+  border: 3px solid black;
+  padding: 10px;
+  background-color: #B7C7CC;
+}
+#hourInfo {
+  list-style-image: url(fishicon.png);
+  margin: 1em;
+  font-size: 1.5em;
+  font-family: 'Helvetica', sans-serif;
+}
+#storeDiv, h2 {
+  font-size: 1.5em;
+  font-family: 'Georgia', serif;
+}
+nav {
+  bottom: 0;
+  right: 0;
+  font-size: 2em;
+}
+header h3 {
+  text-align: justify;
+}
+.aboutstores {
+  border: 2px solid black;
+  margin: 40px;
+  background-color: #B7C7CC;
+  text-align: center;
+  font-family: 'Oxygen', sans-serif;
+}
+.store {
+  padding: 5px;
+}
