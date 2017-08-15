@@ -58,6 +58,8 @@ var stores = {
       store.cookieHour.push(cookies);
       dayTotal += cookies;
     }
+    store.hourArray.push('Total: ');
+    store.cookieHour.push(dayTotal);
     return dayTotal;
   },
   hourMaker: function(store) {
@@ -75,4 +77,9 @@ var stores = {
     }
   },
 };
+stores.dayTotalCalc(stores.store1);
+stores.dayTotalCalc(stores.store2);
+stores.dayTotalCalc(stores.store3);
+stores.dayTotalCalc(stores.store4);
+stores.dayTotalCalc(stores.store5);
 var storeInfo = document.getElementById('storeInfo');
