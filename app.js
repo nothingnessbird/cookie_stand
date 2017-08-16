@@ -116,8 +116,6 @@ document.body.appendChild(formList);
 
 var storeAddressField = document.createElement('li');
 formList.appendChild(storeAddressField);
-var storeHoursField = document.createElement('li');
-formList.appendChild(storeHoursField);
 var storeMinCustField = document.createElement('li');
 formList.appendChild(storeMinCustField);
 var storeMaxCustField = document.createElement('li');
@@ -135,8 +133,16 @@ storeAddress.setAttribute('placeholder','location');
 storeAddressField.appendChild(addressLabel);
 storeAddressField.appendChild(storeAddress);
 
+var minCustLabel = document.createElement('label');
+minCustLabel.htmlFor = 'minCust';
+minCustLabel.innerHTML = 'Enter the estimated minimum number of customers per hour:';
 var storeMinCust = document.createElement('input');
 storeMinCust.type = 'number';
+storeMinCust.setAttribute('name','minCust');
+storeMinCust.setAttribute('placeholder','min. customers/hour');
+storeMinCustField.appendChild(minCustLabel);
+storeMinCustField.appendChild(storeMinCust);
+
 var storeMaxCust = document.createElement('input');
 storeMaxCust.type = 'number';
 var storeAvgSale = document.createElement('input');
