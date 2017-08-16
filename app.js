@@ -55,18 +55,17 @@ function Store(address,hours,minCustHour,maxCustHour,avgSale,cookieHour,hourArra
     storeTableRow.appendChild(storeTableName);
     for (var n = 0; n < this.cookieHour.length; n++) {
       var storeTableSales = document.createElement('td');
-      storeTableSales.innerHTML = stores[i].cookieHour[n];
+      storeTableSales.innerHTML = this.cookieHour[n];
       storeTableRow.appendChild(storeTableSales);
     }
     storeTableBody.appendChild(storeTableRow);
   };
 };
 
-var addStores = [['pike','1st and Pike',[6,20],23,65,6.3],['seaTac','SeaTac',[6,20],3,24,1.2],['seattleCenter','Seattle Center',[6,20],11,38,3.7],['capHill','Capitol Hill',[6,20],20,38,2.3],['alki','Alki',[6,20],2,16,4.6],];
+var addStores = [['pike','1st and Pike',[6,20],23,65,6.3],['seaTac','SeaTac',[6,20],3,24,1.2],['seattleCenter','Seattle Center',[6,20],11,38,3.7],['capHill','Capitol Hill',[6,20],20,38,2.3],['alki','Alki',[6,20],2,16,4.6]];
 
 var storeMaker = function(name,address,hours,minCustHour,maxCustHour,avgSale){
   for (var i = 0; i < addStores.length; i++) {
-    var newStore = addStores[i][0];
     var newStore = new Store(addStores[i][1],addStores[i][2],addStores[i][3],addStores[i][4],addStores[i][5],[],[]);
   }
 };
@@ -78,10 +77,10 @@ var thisStore = 0;
 
 var hourHeader = function(){
   var longestHours = 0;
-  var thisStore = 0;
   for (var i = 0; i < stores.length; i++) {
     var theseHours = stores[i].hours[1] - stores[i].hours[0];
     if (theseHours > longestHours) {
+      longestHours = theseHours;
       thisStore = i;
     }
   }
@@ -97,13 +96,12 @@ hourHeader();
 var hourTotalArray = [];
 
 var footerTotals = function(){
-  var hourTotal = 0;
   var dayTotal = 0;
   for (var n = 0; n < stores[thisStore].cookieHour.length - 1; n++) {
+    var hourTotal = 0;
     for (var i = 0; i < stores.length; i++) {
-      hourTotal = stores[thisStore].cookieHour[n];
+      hourTotal += stores[i].cookieHour[n];
     }
-    hourTotal += hourTotal;
     dayTotal += hourTotal;
     hourTotalArray.push(hourTotal);
   }
@@ -112,6 +110,38 @@ var footerTotals = function(){
 };
 
 footerTotals();
+
+var formList = document.createElement('ul');
+document.body.appendChild(formList);
+
+var storeAddressField = document.createElement('li');
+formList.appendChild(storeAddressField);
+var storeHoursField = document.createElement('li');
+formList.appendChild(storeHoursField);
+var storeMinCustField = document.createElement('li');
+formList.appendChild(storeMinCustField);
+var storeMaxCustField = document.createElement('li');
+formList.appendChild(storeMaxCustField);
+var storeAvgSaleField = document.createElement('li');
+formList.appendChild(storeAvgSaleField);
+
+var addressLabel = document.createElement('label');
+addressLabel.htmlFor = 'address';
+addressLabel.innerHTML = 'Enter the store location:';
+var storeAddress = document.createElement('input');
+storeAddress.type = 'text';
+storeAddress.setAttribute('name','address');
+storeAddress.setAttribute('placeholder','location');
+storeAddressField.appendChild(addressLabel);
+storeAddressField.appendChild(storeAddress);
+
+var storeMinCust = document.createElement('input');
+storeMinCust.type = 'number';
+var storeMaxCust = document.createElement('input');
+storeMaxCust.type = 'number';
+var storeAvgSale = document.createElement('input');
+storeAvgSale.type = 'number';
+storeAvgSale.setAttribute('step','0.1');
 
 var storeTableDiv = document.getElementById('storeDiv');
 var storeTable = document.createElement('table');
