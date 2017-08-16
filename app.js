@@ -143,11 +143,25 @@ storeMinCust.setAttribute('placeholder','min. customers/hour');
 storeMinCustField.appendChild(minCustLabel);
 storeMinCustField.appendChild(storeMinCust);
 
+var maxCustLabel = document.createElement('label');
+maxCustLabel.htmlFor = 'maxCust';
+maxCustLabel.innerHTML = 'Enter the estimated maximum number of customers per hour:';
 var storeMaxCust = document.createElement('input');
 storeMaxCust.type = 'number';
+storeMaxCust.setAttribute('name','maxCust');
+storeMaxCust.setAttribute('placeholder','max. customers/hour');
+storeMaxCustField.appendChild(maxCustLabel);
+storeMaxCustField.appendChild(storeMaxCust);
+
+var avgSaleLabel = document.createElement('label');
+avgSaleLabel.htmlFor = 'avgSale';
+avgSaleLabel.innerHTML = 'Enter the average number of cookies per sale:';
 var storeAvgSale = document.createElement('input');
 storeAvgSale.type = 'number';
 storeAvgSale.setAttribute('step','0.1');
+storeAvgSale.setAttribute('placeholder','avg cookies/sale');
+storeAvgSaleField.appendChild(avgSaleLabel);
+storeAvgSaleField.appendChild(storeAvgSale);
 
 var storeTableDiv = document.getElementById('storeDiv');
 var storeTable = document.createElement('table');
