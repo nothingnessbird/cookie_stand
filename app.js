@@ -93,23 +93,23 @@ var hourHeader = function(){
 
 hourHeader();
 
-var hourTotalArray = [];
+// var hourTotalArray = [];
+//
+// var footerTotals = function(){
+//   var dayTotal = 0;
+//   for (var n = 0; n < stores[thisStore].cookieHour.length - 1; n++) {
+//     var hourTotal = 0;
+//     for (var i = 0; i < stores.length; i++) {
+//       hourTotal += stores[i].cookieHour[n];
+//     }
+//     dayTotal += hourTotal;
+//     hourTotalArray.push(hourTotal);
+//   }
+//   hourTotalArray.push(dayTotal);
+//   hourTotalArray.unshift('Totals');
+// };
 
-var footerTotals = function(){
-  var dayTotal = 0;
-  for (var n = 0; n < stores[thisStore].cookieHour.length - 1; n++) {
-    var hourTotal = 0;
-    for (var i = 0; i < stores.length; i++) {
-      hourTotal += stores[i].cookieHour[n];
-    }
-    dayTotal += hourTotal;
-    hourTotalArray.push(hourTotal);
-  }
-  hourTotalArray.push(dayTotal);
-  hourTotalArray.unshift('Totals');
-};
-
-footerTotals();
+// footerTotals();
 
 //beginning of form creation
 var theForm = document.createElement('form');
@@ -185,17 +185,14 @@ var storeTable = document.createElement('table');
 var storeTableHeader = document.createElement('thead');
 var storeTableBody = document.createElement('tbody');
 var storeTableFooter = document.createElement('tfoot');
+storeTableFooter.id = 'storeTableFooter';
+var footerRow = document.createElement('tr');
+footerRow.id = 'footerRow';
 storeTableDiv.appendChild(storeTable);
-
-// function submitButtoner (event) {
-//   event.preventDefault();
-//   console.log('submit fired');
-// };
 
 function harvestStore(event){
   event.preventDefault();
   var newStoreAddress = this.elements['address'].value;
-  console.log(newStoreAddress);
   var newStoreHours = [6,20];
   var newStoreMinCust = this.elements['minCust'].value;
   var newStoreMaxCust = this.elements['maxCust'].value;
@@ -204,6 +201,13 @@ function harvestStore(event){
   var newStoreHourArray = [];
   var addNewStore = new Store(newStoreAddress,newStoreHours,newStoreMinCust,newStoreMaxCust,newStoreAvgSale,newStoreCookieHour,newStoreHourArray);
   addNewStore.render();
+  var element = document.getElementById('storeTableFooter');
+  element.parentNode.removeChild(element);
+  var storeTableFooter = document.createElement('tfoot');
+  storeTableFooter.id = 'storeTableFooter';
+  storeTable.appendChild(storeTableFooter);
+  footerTotals();
+  tableFooterMaker(storeTableFooter);
   this.reset();
 }
 
@@ -213,18 +217,45 @@ for (var i = 0; i < stores.length; i++) {
   stores[i].render();
 };
 
-for (var i = 0; i < hourHeaderArray.length; i++) {
-  var headerInfo = document.createElement('th');
-  headerInfo.innerHTML = hourHeaderArray[i];
-  storeTableHeader.appendChild(headerInfo);
-}
-
-for (var i = 0; i < hourTotalArray.length; i++) {
-  var footerInfo = document.createElement('td');
-  footerInfo.innerHTML = hourTotalArray[i];
-  storeTableFooter.appendChild(footerInfo);
-}
-
 storeTable.appendChild(storeTableHeader);
 storeTable.appendChild(storeTableBody);
 storeTable.appendChild(storeTableFooter);
+
+var tableHeaderMaker = function() {
+  for (var i = 0; i < hourHeaderArray.length; i++) {
+    var headerInfo = document.createElement('th');
+    headerInfo.innerHTML = hourHeaderArray[i];
+    storeTableHeader.appendChild(headerInfo);
+  }
+};
+
+var hourTotalArray = [];
+
+var footerTotals = function(){
+  var dayTotal = 0;
+  hourTotalArray = [];
+  for (var n = 0; n < stores[thisStore].cookieHour.length - 1; n++) {
+    var hourTotal = 0;
+    for (var i = 0; i < stores.length; i++) {
+      hourTotal += stores[i].cookieHour[n];
+    }
+    dayTotal += hourTotal;
+    hourTotalArray.push(hourTotal);
+  }
+  hourTotalArray.push(dayTotal);
+  hourTotalArray.unshift('Totals');
+};
+
+var tableFooterMaker = function(storeTableFooter){
+  footerRow = document.createElement('tr');
+  storeTableFooter.appendChild(footerRow);
+  for (var i = 0; i < hourTotalArray.length; i++) {
+    var footerInfo = document.createElement('td');
+    footerRow.appendChild(footerInfo);
+    footerInfo.innerHTML = hourTotalArray[i];
+  }
+};
+
+footerTotals();
+tableHeaderMaker();
+tableFooterMaker(storeTableFooter);
