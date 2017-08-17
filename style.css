@@ -50,7 +50,7 @@ nav {
 header h3 {
   text-align: justify;
 }
-.aboutstores {
+#aboutstores {
   border: 2px solid black;
   margin: 40px;
   background-color: #B7C7CC;
@@ -85,4 +85,7 @@ table, tr {
  .submit {
    border: thick solid black;
    max-width: 100%;
+ }
+ span {
+  font-weight: bold;
  }
