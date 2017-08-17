@@ -60,11 +60,10 @@ header h3 {
 .store {
   padding: 5px;
 }
-table, tr, td, th, thead, tfoot {
+table, td, th, thead, tfoot {
   border: thin solid black;
   background-color: #FF9F71;
 }
-
 table, tr {
   background-color: #CCA13C;
 }
@@ -72,5 +71,18 @@ table, tr {
    background-color: #77CCA7;
  }
  tfoot td {
+   background-color: #BEFFC0;
+ }
+ tr:hover td {
+   background-color: #8777CC;
+ }
+ tfoot:hover td{
    background-color: #6EFFEA;
+ }
+ td:hover {
+   background-color: #7EFF82 !important;
+ }
+ .submit {
+   border: thick solid black;
+   max-width: 100%;
  }
