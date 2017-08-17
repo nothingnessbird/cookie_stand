@@ -111,8 +111,15 @@ var footerTotals = function(){
 
 footerTotals();
 
+//beginning of form creation
+var theForm = document.createElement('form');
+theForm.id = 'form';
+document.body.appendChild(theForm);
+var formHeader = document.createElement('h2');
+formHeader.innerHTML = 'Add a new store:';
+theForm.appendChild(formHeader);
 var formList = document.createElement('ul');
-document.body.appendChild(formList);
+theForm.appendChild(formList);
 
 var storeAddressField = document.createElement('li');
 formList.appendChild(storeAddressField);
@@ -158,10 +165,20 @@ avgSaleLabel.htmlFor = 'avgSale';
 avgSaleLabel.innerHTML = 'Enter the average number of cookies per sale:';
 var storeAvgSale = document.createElement('input');
 storeAvgSale.type = 'number';
+storeAvgSale.setAttribute('name','avgSale');
 storeAvgSale.setAttribute('step','0.1');
 storeAvgSale.setAttribute('placeholder','avg cookies/sale');
 storeAvgSaleField.appendChild(avgSaleLabel);
 storeAvgSaleField.appendChild(storeAvgSale);
+
+var submitButton = document.createElement('input');
+submitButton.type = 'submit';
+submitButton.setAttribute('value','Add Store!');
+submitButton.id = 'submit';
+formList.appendChild(submitButton);
+//end of form creation
+//
+//
 
 var storeTableDiv = document.getElementById('storeDiv');
 var storeTable = document.createElement('table');
@@ -189,3 +206,21 @@ for (var i = 0; i < hourTotalArray.length; i++) {
 storeTable.appendChild(storeTableHeader);
 storeTable.appendChild(storeTableBody);
 storeTable.appendChild(storeTableFooter);
+
+// function submitButtoner (event) {
+//   event.preventDefault();
+//   console.log('submit fired');
+// };
+
+function harvestStore(event){
+  event.preventDefault();
+  newStoreAddress = this.elements['address'].value;
+  newStoreHours = [6,20];
+  newStoreMinCust = this.elements['minCust'].value;
+  newStoreMaxCust = this.elements['maxCust'].value;
+  newStoreAvgSale = this.elements['avgSale'].value;
+  var addNewStore = new Store(newStoreAddress,newStoreHours,newStoreMinCust,newStoreMaxCust,newStoreAvgSale);
+  this.reset();
+}
+
+var submitStore = document.getElementById('form').addEventListener('submit', harvestStore);

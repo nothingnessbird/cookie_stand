@@ -82,3 +82,7 @@ table, tr {
  td:hover {
    background-color: #7EFF82 !important;
  }
+ .submit {
+   border: thick solid black;
+   max-width: 100%;
+ }
