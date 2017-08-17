@@ -239,5 +239,7 @@ var tableFooterMaker = function(storeTableFooter){
 };
 
 footerTotals();
+
 tableHeaderMaker();
+
 tableFooterMaker(storeTableFooter);
