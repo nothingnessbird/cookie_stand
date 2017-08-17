@@ -118,6 +118,7 @@ var storeAddress = document.createElement('input');
 storeAddress.type = 'text';
 storeAddress.setAttribute('name','address');
 storeAddress.setAttribute('placeholder','location');
+storeAddress.required = true;
 storeAddressField.appendChild(addressLabel);
 storeAddressField.appendChild(storeAddress);
 
@@ -128,6 +129,7 @@ var storeMinCust = document.createElement('input');
 storeMinCust.type = 'number';
 storeMinCust.setAttribute('name','minCust');
 storeMinCust.setAttribute('placeholder','min. customers/hour');
+storeMinCust.required = true;
 storeMinCustField.appendChild(minCustLabel);
 storeMinCustField.appendChild(storeMinCust);
 
@@ -138,6 +140,7 @@ var storeMaxCust = document.createElement('input');
 storeMaxCust.type = 'number';
 storeMaxCust.setAttribute('name','maxCust');
 storeMaxCust.setAttribute('placeholder','max. customers/hour');
+storeMaxCust.required = true;
 storeMaxCustField.appendChild(maxCustLabel);
 storeMaxCustField.appendChild(storeMaxCust);
 
@@ -149,6 +152,7 @@ storeAvgSale.type = 'number';
 storeAvgSale.setAttribute('name','avgSale');
 storeAvgSale.setAttribute('step','0.1');
 storeAvgSale.setAttribute('placeholder','avg cookies/sale');
+storeAvgSale.required = true;
 storeAvgSaleField.appendChild(avgSaleLabel);
 storeAvgSaleField.appendChild(storeAvgSale);
 
