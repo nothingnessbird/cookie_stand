@@ -172,9 +172,9 @@ function harvestStore(event){
   event.preventDefault();
   var newStoreAddress = this.elements['address'].value;
   var newStoreHours = [6,20];
-  var newStoreMinCust = this.elements['minCust'].value;
-  var newStoreMaxCust = this.elements['maxCust'].value;
-  var newStoreAvgSale = this.elements['avgSale'].value;
+  var newStoreMinCust = parseInt(this.elements['minCust'].value);
+  var newStoreMaxCust = parseInt(this.elements['maxCust'].value);
+  var newStoreAvgSale = parseFloat(this.elements['avgSale'].value);
   var newStoreCookieHour = [];
   var newStoreHourArray = [];
   var addNewStore = new Store(newStoreAddress,newStoreHours,newStoreMinCust,newStoreMaxCust,newStoreAvgSale,newStoreCookieHour,newStoreHourArray);
