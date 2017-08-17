@@ -93,25 +93,6 @@ var hourHeader = function(){
 
 hourHeader();
 
-// var hourTotalArray = [];
-//
-// var footerTotals = function(){
-//   var dayTotal = 0;
-//   for (var n = 0; n < stores[thisStore].cookieHour.length - 1; n++) {
-//     var hourTotal = 0;
-//     for (var i = 0; i < stores.length; i++) {
-//       hourTotal += stores[i].cookieHour[n];
-//     }
-//     dayTotal += hourTotal;
-//     hourTotalArray.push(hourTotal);
-//   }
-//   hourTotalArray.push(dayTotal);
-//   hourTotalArray.unshift('Totals');
-// };
-
-// footerTotals();
-
-//beginning of form creation
 var theForm = document.createElement('form');
 theForm.id = 'form';
 document.body.appendChild(theForm);
@@ -176,9 +157,6 @@ submitButton.type = 'submit';
 submitButton.setAttribute('value','Add Store!');
 submitButton.id = 'submit';
 formList.appendChild(submitButton);
-//end of form creation
-//
-//
 
 var storeTableDiv = document.getElementById('storeDiv');
 var storeTable = document.createElement('table');
