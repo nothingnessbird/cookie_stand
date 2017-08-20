@@ -13,6 +13,8 @@
 }
 body {
   background-color: #F0EBC2;
+  width: 90%;
+  margin-left: 5%;
 }
 h1 {
   font-family: 'Josefin Sans', sans-serif;
@@ -50,7 +52,7 @@ nav {
 header h3 {
   text-align: justify;
 }
-#aboutstores {
+#aboutstores, #about, #testimonials, #merch {
   border: 2px solid black;
   margin: 40px;
   background-color: #B7C7CC;
